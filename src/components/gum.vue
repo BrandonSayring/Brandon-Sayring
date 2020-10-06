@@ -21,110 +21,37 @@
     >
     </a-gltf-model>
 
-    <a-text
-      id="fishAndChips"
-      v-if="fishAndChips"
-      value="Do you wanna read my fish and chips reviews?"
-      position="3 2 -1.5;"
-      scale="0 1 1"
-      animation__position="property: scale; to: 1 1 1; dur: 00; easing: easeOutQuint;"
-      look-at="[camera]"
-    >
-      <a-text
-        value="Yes"
-        class="clickable"
-        position="0 -0.5 0"
-        look-at="[camera]"
-        @click="yes"
-        animation__mouseenter="property: text.color; startEvents: mouseenter; to: #ff0000; dur: 50"
-        animation__mouseleave="property: text.color; startEvents: mouseleave; to: #ffffff; dur: 50"
-        event-set__clearclass="_event: click; class: not-clickable;"
-        refresh-obj
-      >
-      </a-text>
-
-      <a-text
-        id="noFish"
-        value="No"
-        color="#ffffff"
-        class="clickable"
-        position="2 -0.5 0"
-        look-at="[camera]"
-        @click="no"
-        animation__mouseenter="property: text.color; startEvents: mouseenter; to: #ff0000; dur: 50"
-        animation__mouseleave="property: text.color; startEvents: mouseleave; to: #ffffff; dur: 50"
-        event-set__clearclass="_event: click; class: not-clickable;"
-        refresh-obj
-      >
-      </a-text>
-    </a-text>
-
-    <a-text
-      id="areYouSure"
-      v-if="areYouSure"
-      value="Are you sure you want to exit this page."
-      position="3 2 -1.5;"
-      animation__position="property: scale; to: 1 1 1; dur: 00; easing: easeOutQuint;"
-      look-at="[camera]"
-    >
-      <a-text
-        class="clickable"
-        link="href: http://fishandchipsfriday.blogspot.com/;"
-        value="Yes"
-        position="0 -0.5 0"
-        animation__mouseenter="property: text.color; startEvents: mouseenter; to: #ff0000; dur: 50"
-        animation__mouseleave="property: text.color; startEvents: mouseleave; to: #ffffff; dur: 50"
-        look-at="[camera]"
-        event-set__clearclass="_event: click; class: not-clickable;"
-        refresh-obj
-      ></a-text>
-
-      <a-text
-        class="clickable"
-        @click="notSure"
-        value="No"
-        position="2 -0.5 0"
-        animation__mouseenter="property: text.color; startEvents: mouseenter; to: #ff0000; dur: 50"
-        animation__mouseleave="property: text.color; startEvents: mouseleave; to: #ffffff; dur: 50"
-        look-at="[camera]"
-        event-set__clearclass="_event: click; class: not-clickable;"
-        refresh-obj
-      ></a-text>
-    </a-text>
+    <VRLink
+      q="Do you wanna read my fish and chips reviews?"
+      qID="fishAndChips"
+      declineID="noFish"
+      qPosition="3 2 -1.6;"
+      qLink="href: http://fishandchipsfriday.blogspot.com/;"
+      :question="question"
+      parentEntity="#gumEntity"
+      model="blobject2"
+      @question="question = false"
+    />
   </a-entity>
 </template>
 
 <script>
+import VRLink from "./VRLink";
 export default {
   name: "gum",
+  components: {
+    VRLink
+  },
   data: () => ({
-    fishAndChips: false,
-    areYouSure: false
+    question: false
   }),
   methods: {
     gumClick() {
       const coolclip = document.querySelector("#coolclip");
       coolclip.emit("clipVisible");
       coolclip.className = "clickable";
-      this.fishAndChips = true;
+      this.question = true;
       document.getElementById("clicksound").play();
-    },
-    yes() {
-      this.areYouSure = true;
-      document.getElementById("fishAndChips").setAttribute("visible", false);
-      document.getElementById("noFish").className = "not-clickable";
-      document.getElementById("clicksound").play();
-    },
-    no() {
-      document.querySelector("#gumEntity").emit("shrink");
-      document.getElementById("closesound").play();
-    },
-    notSure() {
-      this.areYouSure = false;
-      document.getElementById("fishAndChips").setAttribute("visible", true);
-      this.fishAndChips = false;
-      document.getElementById("blobject2").className = "clickable";
-      document.getElementById("closesound").play();
     }
   }
 };
