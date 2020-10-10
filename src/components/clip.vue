@@ -23,7 +23,7 @@
       q="Would you like to follow my stripper persona on Instagram?"
       qID="insta"
       declineID="noInsta"
-      qPosition="-0.3 -0.09 0.2"
+      qPosition="-0.3 0 0"
       qLink="href: https://www.instagram.com/realtendermoonlight/;"
       :question="question"
       parentEntity="#clipEntity"
@@ -45,9 +45,10 @@ export default {
   }),
   methods: {
     clipClick() {
-      const toxic = document.querySelector("#toxicwaste");
+      const toxic = document.querySelector("#toxicWaste");
       toxic.emit("toxicVisible");
-      toxic.className = "clickable";
+
+      document.querySelector("#toxicWaste2").className = "clickable";
       this.question = true;
       document.querySelector("#mainScene").emit("toxicCloud");
       document.getElementById("clicksound").play();

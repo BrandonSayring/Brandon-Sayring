@@ -25,7 +25,7 @@
       q="Do you wanna read my fish and chips reviews?"
       qID="fishAndChips"
       declineID="noFish"
-      qPosition="3 2 -1.6;"
+      qPosition="0.5 1.6 0"
       qLink="href: http://fishandchipsfriday.blogspot.com/;"
       :question="question"
       parentEntity="#gumEntity"

@@ -3,16 +3,17 @@
     <a-text
       :id="qID"
       v-if="question"
+      align="center"
       :value="q"
       :position="qPosition"
-      scale="0 1 1"
-      animation__position="property: scale; to: 1 1 1; dur: 00; easing: easeOutQuint;"
+      scale="0 0.1 0.1"
+      animation__position="property: scale; to: 0.1 0.1 0.1; dur: 00; easing: easeOutQuint;"
       look-at="[camera]"
     >
       <a-text
         value="Yes"
         class="clickable"
-        position="0 -0.5 0"
+        position="-1 -0.5 0"
         look-at="[camera]"
         @click="yes"
         animation__mouseenter="property: text.color; startEvents: mouseenter; to: #ff0000; dur: 50"
@@ -27,9 +28,12 @@
         value="No"
         color="#ffffff"
         class="clickable"
-        position="2 -0.5 0"
+        position="1 -0.5 0"
         look-at="[camera]"
-        @click="no"
+        @click="
+          no();
+          $emit(`question`);
+        "
         animation__mouseenter="property: text.color; startEvents: mouseenter; to: #ff0000; dur: 50"
         animation__mouseleave="property: text.color; startEvents: mouseleave; to: #ffffff; dur: 50"
         event-set__clearclass="_event: click; class: not-clickable;"
@@ -40,16 +44,18 @@
 
     <a-text
       v-if="areYouSure"
+      align="center"
       value="Are you sure you want to exit this page."
       :position="qPosition"
-      animation__position="property: scale; to: 1 1 1; dur: 00; easing: easeOutQuint;"
+      scale="0 0.1 0.1"
+      animation__position="property: scale; to: 0.1 0.1 0.1; dur: 00; easing: easeOutQuint;"
       look-at="[camera]"
     >
       <a-text
         class="clickable"
         :link="qLink"
         value="Yes"
-        position="0 -0.5 0"
+        position="-1 -0.5 0"
         animation__mouseenter="property: text.color; startEvents: mouseenter; to: #ff0000; dur: 50"
         animation__mouseleave="property: text.color; startEvents: mouseleave; to: #ffffff; dur: 50"
         look-at="[camera]"
@@ -64,7 +70,7 @@
           $emit(`question`);
         "
         value="No"
-        position="2 -0.5 0"
+        position="1 -0.5 0"
         animation__mouseenter="property: text.color; startEvents: mouseenter; to: #ff0000; dur: 50"
         animation__mouseleave="property: text.color; startEvents: mouseleave; to: #ffffff; dur: 50"
         look-at="[camera]"

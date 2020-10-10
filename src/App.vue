@@ -63,6 +63,11 @@
       preload="auto"
     ></audio>
     <audio
+      id="exitsound"
+      src="@/assets/audio/exit-VR.mp3"
+      preload="auto"
+    ></audio>
+    <audio
       id="lilstiffy"
       src="@/assets/audio/lilstiffy.mp3"
       preload="auto"
