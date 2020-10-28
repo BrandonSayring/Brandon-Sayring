@@ -1,9 +1,13 @@
 <template>
   <div class="home">
     <HelloWorld />
-
+    
     <div app id="splash">
+      <div>
+      <img id="splash" class="logosplash" src="../assets/logo.png" alt="logo" height="20px"/>
+      </div>
       <div class="loading"></div>
+      
     </div>
   </div>
 </template>
@@ -33,8 +37,8 @@ export default {
   left: 0;
   right: 0;
 
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
 
   margin: auto;
 }
@@ -49,11 +53,19 @@ export default {
 }
 
 .loading {
-  width: 120px;
-  height: 120px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   border: 0.25rem solid transparent;
   border-top-color: white;
   animation: spin 1s infinite linear;
+}
+.logosplash {
+  position: absolute;
+  max-width: 300px;
+  max-height: 300px;
+  filter: invert(1);
+
+
 }
 </style>

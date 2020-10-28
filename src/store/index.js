@@ -128,6 +128,28 @@ export default new Vuex.Store({
         link: "https://www.figma.com/",
       },
     ],
+    soundDesign: [
+      {
+        project: "Worst Idea of All Time Podcast",
+        detail: "Season 5 Theme Song",
+        link: "https://www.worstideaofalltime.com/",
+      },
+      {
+        project: "Life is Easy",
+        detail: "Gym Scene Music ep. 6 & 7",
+        link: "https://www.tvnz.co.nz/shows/life-is-easy"
+      },
+      {
+        project: "Brothers (2014)",
+        detail: "Music Composer & Boom Operater",
+        link: "https://www.imdb.com/title/tt4575724/"
+      },
+      {
+        project: "Blanking: The Unseen Art",
+        detail: "Music Composer",
+        link: "https://vimeo.com/25180123"
+      },
+    ],
     socials: [
       {
         icon: "mdi-facebook",

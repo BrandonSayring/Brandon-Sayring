@@ -1,5 +1,6 @@
 <template>
-  <v-app>
+  <v-app
+  style="backgroundColor: #000000">
     <v-app-bar app flat color="transparent" dark>
       <speedDialMenu
         sdTransition="slide-x-reverse-transition"

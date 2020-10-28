@@ -45,14 +45,14 @@
           <v-expansion-panels>
             <v-expansion-panel>
               <v-expansion-panel-header ripple
-                ><v-card-title class="pa-0 pb-5 ma-0 justify-center">
+                ><v-card-title class="pl-1 pb-2">
                   Technologies</v-card-title
                 ></v-expansion-panel-header
               >
               <v-expansion-panel-content>
                 <v-container fluid>
                   <v-row dense>
-                    <v-card class="text-center pb-5">
+                    <v-card class="text-center">
                       <h3 class="pa-5">Languages & Tools</h3>
                       <v-chip
                         class="ma-2"
@@ -137,6 +137,38 @@
                 </v-container>
               </v-expansion-panel-content>
             </v-expansion-panel>
+
+            <v-expansion-panel>
+              <v-expansion-panel-header ripple
+                ><v-card-title class="pl-1 pb-2">
+                  Sound Design</v-card-title
+                ></v-expansion-panel-header
+              >
+              <v-expansion-panel-content>
+                <v-container fluid>
+                  <v-row dense>
+                    <v-col cols="12">
+                      <v-card class="text-center">
+                        <v-card-text class="pa-0 pt-5 text-left"
+                        v-for="soundDesign in soundDesign"
+                          :key="soundDesign">
+                        <v-btn 
+                          text
+                          small
+                          :href="soundDesign.link"
+                          target="_blank"
+                          >{{ soundDesign.project }}</v-btn
+                        >
+                        <v-card-subtitle class="pt-0 pb-8 ml-2">
+                          {{soundDesign.detail}}
+                        </v-card-subtitle>
+                        </v-card-text>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-container>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
           </v-expansion-panels>
         </v-card-text>
         <v-card-actions class="white">
@@ -181,7 +213,8 @@ export default {
     languages: state => state.languages,
     frameworks: state => state.frameworks,
     softwares: state => state.softwares,
-    platforms: state => state.platforms
+    platforms: state => state.platforms,
+    soundDesign: state => state.soundDesign,
   })
 };
 </script>
